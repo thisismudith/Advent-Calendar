@@ -1,27 +1,28 @@
-data = [] # Your Advent Input
+data = [] # Your Advent Input as a proper list.
+# Recommended to run this for input:
+with open(location,'r') as f: #Replace location with the input.txt file location of your Advent Input
+    data = f.readlines()
+    f.close()
 data = [o.rstrip('\n') for o in data]
 del data[-1]
 def day1(part=1):
     done = False
-    # Part 1
     if part not in [1,2]:
         part == 1 # Default Part
-    if part == 1:
-        for i in range(len(data)):
-            for j in range(len(data)):
-                if data[i] + data[j] == 2020:
-                    return data[i]*data[j]
+    if part == 1: # Part 1
+        for i in data:
+            for j in data:
+                if i + j == 2020:
+                    return i*j
                     done = True # To stop the code after retrieving first value.
             if done:
                 break
-
-        # Part 2
-    elif part == 2:
-        for i in range(len(data)):
-            for j in range(len(data)):
-                for k in range(len(data)):
-                    if data[i] + data[j] + data[k]== 2020:
-                        return data[i]*data[j]*data[k]
+    elif part == 2: # Part 2
+        for i in data:
+            for j in data:
+                for k in data:
+                    if i + j + k == 2020:
+                        return i*j*k
                         done = True # To stop the code after retrieving first value.
                 if done:
                     break
