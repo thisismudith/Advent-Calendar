@@ -1,4 +1,6 @@
 data = [] # Your Advent Input
+data = [o.rstrip('\n') for o in data]
+del data[-1]
 def day1(part=1):
     done = False
     # Part 1
@@ -8,7 +10,7 @@ def day1(part=1):
         for i in range(len(data)):
             for j in range(len(data)):
                 if data[i] + data[j] == 2020:
-                    print(data[i]*data[j])
+                    return data[i]*data[j]
                     done = True # To stop the code after retrieving first value.
             if done:
                 break
@@ -19,11 +21,11 @@ def day1(part=1):
             for j in range(len(data)):
                 for k in range(len(data)):
                     if data[i] + data[j] + data[k]== 2020:
-                        print(data[i]*data[j]*data[k])
+                        return data[i]*data[j]*data[k]
                         done = True # To stop the code after retrieving first value.
                 if done:
                     break
             if done:
                 break
-day1(part=1)
-day1(part=2)
+print(day1(part=1))
+print(day1(part=2))
