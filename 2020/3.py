@@ -1,7 +1,7 @@
 # If you already have the data as an input use:
 data = [] # Your Advent Input
 # However, it is highly recommended to run this:
-location = "C:\\Users\\dagam\\Downloads\\temp-files\\input.txt" # Path of the input.txt provided from Advent Calendar
+location = "" # Path of the input.txt provided from Advent Calendar
 try:
     with open(location,'r') as f:
         data = f.readlines()
@@ -31,5 +31,4 @@ def day3(part=1):
     else:
         return increment(1,1)*increment(3,1)*increment(5,1)*increment(7,1)*increment(1,2)
 print('Part 1: '+str(day3(part=1)))
-print('Part 2: '+str(day3(part=2)))
-    
+print('Part 2: '+str(day3(part=2)))  
