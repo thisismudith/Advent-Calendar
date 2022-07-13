@@ -1,10 +1,20 @@
+# If you already have the data as an input use:
 data = [] # Your Advent Input
+# However, it is highly recommended to run this:
+location = "" # Path of the input.txt provided from Advent Calendar
+try:
+    with open(location,'r') as f:
+        data = f.readlines()
+        f.close()
+except:
+    pass
 data = [o.rstrip('\n') for o in data]
-del data[-1]
+if data[-1] == "'+":
+    del data[-1]
 def day2(part=1):
     count = 0
     if part not in [1,2]:
-        part == 1 #Default Part
+        part = 1 #Default Part
     for i in data:
         i = i.split(' ')
         start = int(i[0].split('-')[0])
@@ -17,5 +27,5 @@ def day2(part=1):
             if (pwd[start-1] == letter and pwd[end-1] != letter) or (pwd[start-1] != letter and pwd[end-1] == letter):
                 count += 1
     return count
-print(day2(part=1))
-print(day2(part=2))
+print('Part 1: '+day2(part=1))
+print('Part 2: '+day2(part=2))
