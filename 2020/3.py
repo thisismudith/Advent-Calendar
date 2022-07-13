@@ -1,7 +1,4 @@
 # If you already have the data as an input use:
-from re import L
-
-
 data = [] # Your Advent Input
 # However, it is highly recommended to run this:
 location = "C:\\Users\\dagam\\Downloads\\temp-files\\input.txt" # Path of the input.txt provided from Advent Calendar
