@@ -24,16 +24,16 @@ def day1(part=1):
                     return int(i)*int(j)
             if done:
                 break
-    else: # Part 2
+    elif part == 2: # Part 2
         for i in data:
             for j in data:
                 for k in data:
-                    if int(i) + int(j) + int(k)== 2020:
+                    if int(i) + int(j) + int(k) == 2020:
                         done = True
                         return int(i)*int(j)*int(k)
                 if done:
                     break
             if done:
                 break
-print('Part 1: '+day1(part=1))
-print('Part 2: '+day1(part=2))
+print('Part 1: '+str(day1(part=1)))
+print('Part 2: '+str(day1(part=2)))
