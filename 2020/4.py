@@ -1,4 +1,5 @@
-import json #Required to convert str → dict
+import json
+from tkinter import N #Required to convert str → dict
 # If you already have the data as an input use:
 data = [] # Your Advent Input
 # However, it is highly recommended to run this:
@@ -28,22 +29,28 @@ def convert_to_json(data:str):
     return new_dict
     
 def range_values(data:dict):
-    byr = 1920 <= data["byr"] <= 2002
-    iyr = 2010 <= data["iyr"] <= 2020
-    eyr = 2020 <= data["eyr"] <= 2030
-    hgt_unit = data["hgt"][-2:]
-    if hgt_unit == "cm":
-        hgt = 150 <= int(data["hgt"][:-2]) <= 193
-    elif hgt_unit == "in":
-        hgt = 59 <= int(data["hgt"][:-2]) <= 76
-    hcl, ecl = True, True
-    if len(data["hcl"]) == 7:
-        hcl_hex = data["hcl"][1:]
-        for h in hcl_hex.lower():
-            if h not in "0123456789abcdef":
-                hcl = False
-    if data["ecl"] not in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
-        ecl = False
+    try:
+        hcl, ecl, pid, hgt = False, False, False, False
+        byr = 1920 <= int(data["byr"]) <= 2002
+        iyr = 2010 <= int(data["iyr"]) <= 2020
+        eyr = 2020 <= int(data["eyr"]) <= 2030
+        hgt_unit = data["hgt"][-2:]
+        if hgt_unit == "cm":
+            hgt = 150 <= int(data["hgt"][:-2]) <= 193
+        elif hgt_unit == "in":
+            hgt = 59 <= int(data["hgt"][:-2]) <= 76
+        if len(data["hcl"]) == 7:
+            hcl_hex = data["hcl"][1:]
+            for h in hcl_hex.lower():
+                if h in "0123456789abcdef":
+                    hcl = True
+        if data["ecl"] in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
+            ecl = True
+        if data["pid"].isdigit() and len(data["pid"]) == 9:
+            pid = True
+        return (byr and iyr and eyr and hgt and hcl and ecl and pid)
+    except KeyError:
+        return False
 def day4(part=1):
     count = 0
     sep_list = [] #Separated List
@@ -58,7 +65,9 @@ def day4(part=1):
         return count
     else:
         for i in sep_list:
-            print(len(i["pid"]), i["pid"], i)
-            # range_values(i)
+            if range_values(i):
+                count+= 1
+        return count
 print(f"Part 1: {day4(part=1)}")
 print(f"Part 2: {day4(part=2)}")
+
