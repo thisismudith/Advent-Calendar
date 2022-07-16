@@ -1,5 +1,5 @@
 # If you already have the data as an input use:
-data = [] # Your Advent Input
+data = [] # Your Advent Calendar Input
 # However, it is highly recommended to run this:
 location = "" # Path of the input.txt provided from Advent Calendar
 try:
