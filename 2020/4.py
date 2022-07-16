@@ -1,5 +1,3 @@
-import json
-from tkinter import N #Required to convert str → dict
 # If you already have the data as an input use:
 data = [] # Your Advent Input
 # However, it is highly recommended to run this:
