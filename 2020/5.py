@@ -51,7 +51,7 @@ def day5(part=1):
             try:
                 row, col = i[0], i[1]
             except TypeError:
-                pass
+                continue
             row_and_column[row_and_column.index(i)] = row*8 + col + 1
             row_and_column.append(row*8 + col - 1)
         return max(row_and_column)        
