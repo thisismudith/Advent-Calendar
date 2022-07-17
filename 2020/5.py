@@ -1,7 +1,7 @@
 # If you already have the data as an input use:
 data = [] # Your Advent Input
 # However, it is highly recommended to run this:
-location = "C:\\Users\\dagam\\Downloads\\input.txt" # Path of the input.txt provided from Advent Calendar
+location = "" # Path of the input.txt provided from Advent Calendar
 try:
     with open(location,'r') as f:
         data = f.readlines()
@@ -48,13 +48,11 @@ def day5(part=1):
         return max(row_and_column)
     elif part == 2: #Part 2
         for i in row_and_column:
-            try:
-                row, col = i[0], i[1]
-            except TypeError:
-                continue
-            row_and_column[row_and_column.index(i)] = row*8 + col + 1
-            row_and_column.append(row*8 + col - 1)
-        return max(row_and_column)        
+            row_and_column[row_and_column.index(i)] = i[0]*8 + i[1]
+        row_and_column.sort()
+        for seat_1 in range(len(row_and_column)-1): #Check for missing seat
+            if row_and_column[seat_1+1] - row_and_column[seat_1] > 1:
+                return int((row_and_column[seat_1+1]+row_and_column[seat_1])/2)
 
 print("Part 1: "+str(day5(part=1)))
 print("Part 2: "+str(day5(part=2)))
