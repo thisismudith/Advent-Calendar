@@ -1,7 +1,7 @@
 # If you already have the data as an input use:
 data = [] # Your Advent Calendar Input
 # However, it is highly recommended to run this:
-location = "" # Path of the input.txt provided from Advent Calendar
+location = "" # Path of the input.txt provided from Advent Calendar (Replace '\' → '\\')
 try:
     with open(location,'r') as f:
         data = f.readlines()
