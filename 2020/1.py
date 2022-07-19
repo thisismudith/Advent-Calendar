@@ -13,7 +13,6 @@ if data[-1] == "'+":
     del data[-1]
 def day1(part=1):
     done = False
-    # Part 1
     if part not in [1,2]:
         part = 1 # Default Part
     if part == 1:
