@@ -11,3 +11,13 @@ except:
 data = [o.rstrip('\n') for o in data]
 if data[-1] == "'+":
     del data[-1]
+
+def day7(part=1):
+    if part not in [1,2]:
+        part = 1 # Default Part
+    if part == 1:
+        return data
+    elif part == 2:
+        return 'Not now, later!'
+print('Part 1: '+str(day7(part=1)))
+print('Part 2: '+str(day7(part=2)))
