@@ -50,9 +50,9 @@ def day5(part=1):
         for i in row_and_column:
             row_and_column[row_and_column.index(i)] = i[0]*8 + i[1]
         row_and_column.sort()
-        for seat_1 in range(len(row_and_column)-1): #Check for missing seat
-            if row_and_column[seat_1+1] - row_and_column[seat_1] > 1:
-                return int((row_and_column[seat_1+1]+row_and_column[seat_1])/2)
+        for seat_1 in range(len(row_and_column)-1):
+            if row_and_column[seat_1+1] - row_and_column[seat_1] > 1: #Check for missing seat
+                return int((row_and_column[seat_1+1]+row_and_column[seat_1])/2) 
 
 print("Part 1: "+str(day5(part=1)))
 print("Part 2: "+str(day5(part=2)))
